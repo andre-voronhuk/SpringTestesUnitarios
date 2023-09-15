@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.voronhuk.unit_tests.model.Pessoa;
 import com.voronhuk.unit_tests.service.PessoaService;
 import com.voronhuk.unit_tests.service.TransacaoService;
 
@@ -20,8 +21,8 @@ public class AppController {
     private TransacaoService transacaoService;
 
     @GetMapping(value = "/")
-    public ResponseEntity<String> getMain(@RequestParam String param) throws NumberFormatException, Exception {
-        pessoaService.getById(Long.parseLong("0"));
+    public ResponseEntity<String> getMain() throws NumberFormatException, Exception {
+
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 

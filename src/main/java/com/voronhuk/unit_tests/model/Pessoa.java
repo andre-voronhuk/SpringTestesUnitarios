@@ -5,10 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -16,7 +14,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class Pessoa {
 
@@ -35,11 +32,24 @@ public class Pessoa {
         if (valor > saldo) {
             throw new Exception("Saldo Insuficiente");
         }
+        this.saldo = this.saldo - valor;
+
+    }
+
+    public Pessoa(String nome) {
+        this.id = null;
+        this.saldo = 0.0;
+        this.nome = nome;
+    }
+
+    public Pessoa() {
+        this.saldo = 0.0;
+        this.id = null;
 
     }
 
     public void adicionarSaldo(Double valor) {
 
-        saldo = saldo + valor;
+        this.saldo = this.saldo + valor;
     }
 }

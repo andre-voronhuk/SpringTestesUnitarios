@@ -23,8 +23,14 @@ public class PessoaService {
 
     }
 
-    public void save(Pessoa remetente) {
-        repository.save(remetente);
+    public Pessoa save(Pessoa pessoa) throws Exception {
+
+        if (pessoa.getNome().isEmpty()) {
+            throw new Exception("Nome Vazio");
+
+        }
+
+        return repository.save(pessoa);
     }
 
 }
