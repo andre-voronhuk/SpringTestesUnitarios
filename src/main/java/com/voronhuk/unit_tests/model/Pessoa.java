@@ -14,7 +14,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @AllArgsConstructor
-@ToString
 public class Pessoa {
 
     @Id
@@ -52,4 +51,5 @@ public class Pessoa {
 
         this.saldo = this.saldo + valor;
     }
+
 }

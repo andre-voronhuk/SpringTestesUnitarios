@@ -20,7 +20,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
 public class Transacao {
 
     @Id

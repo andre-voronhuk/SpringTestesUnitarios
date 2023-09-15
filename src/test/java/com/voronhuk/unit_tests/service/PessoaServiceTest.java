@@ -57,4 +57,13 @@ class PessoaServiceTest {
 
     }
 
+    @Test
+    void buscarPessoaInexistente() throws Exception {
+        Pessoa pessoa = new Pessoa(Long.parseLong("29"), "Andre", 0.0);
+
+        when(repository.findById(pessoa.getId())).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(Exception.class, () -> pessoaService.getById(pessoa.getId()));
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.voronhuk.unit_tests.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -30,4 +32,25 @@ public class PessoaTest {
 
     }
 
+    @Test
+    void subtrairValorIgualOSaldo() throws Exception {
+        Pessoa pessoa = new Pessoa("Andre");
+        pessoa.adicionarSaldo(100.0);
+        pessoa.subtrairSaldo(100.0);
+        Assertions.assertEquals(0.0, pessoa.getSaldo());
+
+    }
+
+    @Test
+    void testeConstrutores() {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setId(Long.parseLong("1"));
+        pessoa.setNome("John");
+        pessoa.setSaldo(10.0);
+
+        Pessoa pessoa2 = new Pessoa(Long.parseLong("1"), "John", 10.0);
+
+        assertEquals(pessoa.getId(), pessoa2.getId());
+
+    }
 }
